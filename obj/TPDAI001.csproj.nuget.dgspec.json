@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\47129158\\Documents\\TPDAI001\\TPDAI001.csproj": {}
+    "C:\\Users\\47129158\\Documents\\TPDAI001(Beta)\\TpDai001\\TPDAI001.csproj": {}
   },
   "projects": {
-    "C:\\Users\\47129158\\Documents\\TPDAI001\\TPDAI001.csproj": {
+    "C:\\Users\\47129158\\Documents\\TPDAI001(Beta)\\TpDai001\\TPDAI001.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\47129158\\Documents\\TPDAI001\\TPDAI001.csproj",
+        "projectUniqueName": "C:\\Users\\47129158\\Documents\\TPDAI001(Beta)\\TpDai001\\TPDAI001.csproj",
         "projectName": "TPDAI001",
-        "projectPath": "C:\\Users\\47129158\\Documents\\TPDAI001\\TPDAI001.csproj",
+        "projectPath": "C:\\Users\\47129158\\Documents\\TPDAI001(Beta)\\TpDai001\\TPDAI001.csproj",
         "packagesPath": "C:\\Users\\47129158\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\47129158\\Documents\\TPDAI001\\obj\\",
+        "outputPath": "C:\\Users\\47129158\\Documents\\TPDAI001(Beta)\\TpDai001\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -14,24 +14,22 @@ namespace TPDAI001.Controllers{
             return Ok(listaP);
            
         }
+
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
-             if (id < 1)
+             if (id <= 0)
         {
             return BadRequest();
         }
-
         Pizza p = BD.ObtenerPizzaPorID(id);
-
         if (p == null)
         {
             return NotFound();
         }
-
         return Ok(p);
-       
         }
+
         [HttpPost]
         public IActionResult Create(Pizza pizza)
         {
@@ -39,11 +37,10 @@ namespace TPDAI001.Controllers{
         {
             return BadRequest();
         }
-      
         BD.AgregarPizza(pizza);
-        return Ok();
-           
+        return Ok();  
         }
+
         [HttpPut("{id}")]
         public IActionResult Update(int id, Pizza pizza)
         {
@@ -56,6 +53,7 @@ namespace TPDAI001.Controllers{
             BD.ModificarPizza(id, pizza);
             return Ok();
         }
+
         [HttpDelete("{id}")]
         public IActionResult DeleteById(int id)
         {
@@ -67,12 +65,6 @@ namespace TPDAI001.Controllers{
             }
             BD.EliminarPizza(id);
             return Ok();
-            
-
-           
         }
-
     }
-
-
 }
