@@ -43,7 +43,7 @@ public class BD
     }
     public static void ModificarPizza(int Id, Pizza P)
     {
-        string sql = "UPDATE Pizzas Set Nombre = @pNombre, LibreGluten = @pLibreGluten, Importe = @pImporte, Descripcion = @pDescripcion WHERE Id = @pId";
+        string sql = "exec sp_ModificarPizza @pNombre,  @pLibreGluten,  @pImporte,  @pDescripcion, @pId";
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
             db.Execute(sql, new { pId = Id, pNombre = P.Nombre, pLibreGluten = P.LibreGluten, pImporte = P.Importe, pDescripcion = P.Descripcion });
