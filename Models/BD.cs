@@ -5,10 +5,10 @@ using System.Collections.Generic;
 
 public class BD
 {
-    private static string _connectionString = @"Server=A-PHZ2-AMI-007;DataBase=TPDAI001;Trusted_Connection=True";
+    private static string _connectionString = @"Server=A-PHZ2-CIDI-011;DataBase=TPDAI001;Trusted_Connection=True";
     public static List<Pizza> ListarPizzas(){
         List<Pizza> listaP =  new List<Pizza>(); 
-        string sql = "SELECT * FROM Pizzas";
+        string sql = "sp_ListarPizzas";
          using (SqlConnection db = new SqlConnection(_connectionString))
         {
             listaP = db.Query<Pizza>(sql).ToList();
@@ -18,7 +18,7 @@ public class BD
     public static Pizza ObtenerPizzaPorID(int Id)
     {
         Pizza P = null;
-        string sql = "SELECT * FROM Pizzas WHERE Pizzas.Id = @pId";
+        string sql = "sp_ObtenerPizzaPorID @pId";
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
             P = db.QueryFirstOrDefault<Pizza>(sql, new { pId = Id });
@@ -27,7 +27,7 @@ public class BD
     }
     public static void EliminarPizza(int Id)
     {
-        string sql = "DELETE FROM Pizzas WHERE Id = @pId";
+        string sql = "sp_EliminarPizza @pId";
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
             db.Execute(sql, new { pId = Id });
@@ -35,7 +35,7 @@ public class BD
     }
     public static void AgregarPizza(Pizza P)
     {
-        string sql = "INSERT INTO Pizzas VALUES (@pNombre, @pLibreGluten, @pImporte, @pDescripcion)";
+        string sql = "sp_AgregarPizza @pNombre, @pLibreGluten, @pImporte, @pDescripcion";
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
             db.Execute(sql, new { pNombre = P.Nombre, pLibreGluten = P.LibreGluten, pImporte = P.Importe, pDescripcion = P.Descripcion });
@@ -43,7 +43,7 @@ public class BD
     }
     public static void ModificarPizza(int Id, Pizza P)
     {
-        string sql = "exec sp_ModificarPizza @pNombre,  @pLibreGluten,  @pImporte,  @pDescripcion, @pId";
+        string sql = "sp_ModificarPizza @pNombre,  @pLibreGluten,  @pImporte,  @pDescripcion, @pId";
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
             db.Execute(sql, new { pId = Id, pNombre = P.Nombre, pLibreGluten = P.LibreGluten, pImporte = P.Importe, pDescripcion = P.Descripcion });
